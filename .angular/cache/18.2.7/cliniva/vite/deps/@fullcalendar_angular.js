@@ -1,7 +1,7 @@
 import {
   Calendar,
   CustomRenderingStore
-} from "./chunk-T7OPNOCE.js";
+} from "./chunk-4CZZFOZZ.js";
 import {
   CommonModule,
   NgClass,
@@ -9,7 +9,7 @@ import {
   NgIf,
   NgStyle,
   NgTemplateOutlet
-} from "./chunk-SMR5EPDQ.js";
+} from "./chunk-PGKNWU6V.js";
 import {
   ChangeDetectorRef,
   Component,
@@ -40,15 +40,15 @@ import {
   ɵɵqueryRefresh,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-ZMFUJZSL.js";
-import "./chunk-ITKDGJGI.js";
-import "./chunk-4VHJIMU2.js";
-import "./chunk-QYAL436B.js";
+} from "./chunk-RMVI3VQG.js";
+import "./chunk-24ZUWIQN.js";
+import "./chunk-BRP4ZVTO.js";
+import "./chunk-KDDE2TCW.js";
 import {
   __spreadValues
 } from "./chunk-N6ESDQJH.js";
 
-// node_modules/@fullcalendar/angular/fesm2020/fullcalendar-angular.mjs
+// ../../../../node_modules/@fullcalendar/angular/fesm2020/fullcalendar-angular.mjs
 var _c0 = ["*"];
 var _c1 = ["rootEl"];
 var _c2 = (a0) => ({

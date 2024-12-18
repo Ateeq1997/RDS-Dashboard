@@ -53,10 +53,10 @@ import {
   startOfDay,
   triggerDateSelect,
   whenTransitionDone
-} from "./chunk-T7OPNOCE.js";
+} from "./chunk-4CZZFOZZ.js";
 import "./chunk-N6ESDQJH.js";
 
-// node_modules/@fullcalendar/interaction/index.js
+// ../../../../node_modules/@fullcalendar/interaction/index.js
 config.touchMouseIgnoreWait = 500;
 var ignoreMouseDepth = 0;
 var listenerCnt = 0;

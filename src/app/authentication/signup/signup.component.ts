@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -18,8 +19,9 @@ import { HttpClient } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    RouterLink,
     MatButtonModule,
+    MatSelectModule,  // Add this line
+    RouterLink,
   ],
 })
 export class SignupComponent implements OnInit {
@@ -42,7 +44,8 @@ export class SignupComponent implements OnInit {
       email: ['', [Validators.required, Validators.email, Validators.minLength(5)]],
       password: ['', Validators.required],
       cpassword: ['', Validators.required],
-    }, { validators: this.passwordMatchValidator }); // Add custom validator here
+      role: ['', Validators.required],  // Add this line
+    }, { validators: this.passwordMatchValidator });
   }
   
   passwordMatchValidator(form: UntypedFormGroup) {

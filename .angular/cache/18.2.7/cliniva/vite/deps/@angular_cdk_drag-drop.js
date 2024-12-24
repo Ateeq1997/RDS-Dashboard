@@ -2,11 +2,11 @@ import {
   CdkScrollableModule,
   ScrollDispatcher,
   ViewportRuler
-} from "./chunk-MAH3R4DB.js";
+} from "./chunk-JABWDTAC.js";
 import {
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader
-} from "./chunk-N2KVQPG5.js";
+} from "./chunk-KKJUDOGV.js";
 import {
   _getEventTarget,
   _getShadowRoot,
@@ -14,15 +14,15 @@ import {
   coerceElement,
   coerceNumberProperty,
   normalizePassiveListenerOptions
-} from "./chunk-HLALJQ5D.js";
+} from "./chunk-5BGRUJXP.js";
+import "./chunk-CFITASHS.js";
+import "./chunk-KJGUM6FH.js";
 import {
   Directionality
-} from "./chunk-I4T6RP7V.js";
-import "./chunk-R46WNUSQ.js";
-import "./chunk-HFX5JSXX.js";
+} from "./chunk-5VXWFUTI.js";
 import {
   DOCUMENT
-} from "./chunk-PGKNWU6V.js";
+} from "./chunk-SMR5EPDQ.js";
 import {
   ApplicationRef,
   ChangeDetectionStrategy,
@@ -66,12 +66,12 @@ import {
   ɵɵdefineNgModule,
   ɵɵdirectiveInject,
   ɵɵinject
-} from "./chunk-RMVI3VQG.js";
+} from "./chunk-ZMFUJZSL.js";
 import {
   animationFrameScheduler,
   merge
-} from "./chunk-24ZUWIQN.js";
-import "./chunk-BRP4ZVTO.js";
+} from "./chunk-4VHJIMU2.js";
+import "./chunk-ITKDGJGI.js";
 import {
   BehaviorSubject,
   Observable,
@@ -84,10 +84,10 @@ import {
   take,
   takeUntil,
   tap
-} from "./chunk-KDDE2TCW.js";
+} from "./chunk-QYAL436B.js";
 import "./chunk-N6ESDQJH.js";
 
-// ../../../../node_modules/@angular/cdk/fesm2022/drag-drop.mjs
+// node_modules/@angular/cdk/fesm2022/drag-drop.mjs
 function deepCloneNode(node) {
   const clone = node.cloneNode(true);
   const descendantsWithId = clone.querySelectorAll("[id]");
@@ -2382,7 +2382,7 @@ var _ResetsLoader = class __ResetsLoader {
       vars: 0,
       template: function _ResetsLoader_Template(rf, ctx) {
       },
-      styles: ["@layer cdk-resets{.cdk-drag-preview{background:none;border:none;padding:0;color:inherit}}.cdk-drag-placeholder *,.cdk-drag-preview *{pointer-events:none !important}"],
+      styles: ["@layer cdk-resets{.cdk-drag-preview{background:none;border:none;padding:0;color:inherit;inset:auto}}.cdk-drag-placeholder *,.cdk-drag-preview *{pointer-events:none !important}"],
       encapsulation: 2,
       changeDetection: 0
     });
@@ -2399,7 +2399,7 @@ var _ResetsLoader = class __ResetsLoader {
       host: {
         "cdk-drag-resets-container": ""
       },
-      styles: ["@layer cdk-resets{.cdk-drag-preview{background:none;border:none;padding:0;color:inherit}}.cdk-drag-placeholder *,.cdk-drag-preview *{pointer-events:none !important}"]
+      styles: ["@layer cdk-resets{.cdk-drag-preview{background:none;border:none;padding:0;color:inherit;inset:auto}}.cdk-drag-placeholder *,.cdk-drag-preview *{pointer-events:none !important}"]
     }]
   }], null, null);
 })();

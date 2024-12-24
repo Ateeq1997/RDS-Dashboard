@@ -2,9 +2,16 @@ import {
   MAT_FORM_FIELD,
   MatFormField,
   MatFormFieldControl
-} from "./chunk-AGTXBJSZ.js";
-import "./chunk-LIWHUMGK.js";
-import "./chunk-RGTMQ2ZZ.js";
+} from "./chunk-VDXPVMXM.js";
+import "./chunk-UWQXPBY6.js";
+import {
+  FormGroupDirective,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+  NgForm,
+  Validators
+} from "./chunk-GNCYDJPD.js";
+import "./chunk-PD2MNQEN.js";
 import {
   ErrorStateMatcher,
   MAT_RIPPLE_GLOBAL_OPTIONS,
@@ -12,15 +19,12 @@ import {
   MatRippleLoader,
   MatRippleModule,
   _ErrorStateTracker
-} from "./chunk-Q6XOMKEQ.js";
+} from "./chunk-3RNP423J.js";
 import {
   FocusKeyManager,
   FocusMonitor
-} from "./chunk-N2KVQPG5.js";
-import "./chunk-HLALJQ5D.js";
-import {
-  Directionality
-} from "./chunk-I4T6RP7V.js";
+} from "./chunk-KKJUDOGV.js";
+import "./chunk-5BGRUJXP.js";
 import {
   BACKSPACE,
   DELETE,
@@ -30,17 +34,13 @@ import {
   TAB,
   UP_ARROW,
   hasModifierKey
-} from "./chunk-R46WNUSQ.js";
+} from "./chunk-KJGUM6FH.js";
 import {
-  FormGroupDirective,
-  NG_VALUE_ACCESSOR,
-  NgControl,
-  NgForm,
-  Validators
-} from "./chunk-4A4A7OPE.js";
+  Directionality
+} from "./chunk-5VXWFUTI.js";
 import {
   DOCUMENT
-} from "./chunk-PGKNWU6V.js";
+} from "./chunk-SMR5EPDQ.js";
 import {
   ANIMATION_MODULE_TYPE,
   Attribute,
@@ -104,20 +104,20 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵviewQuery
-} from "./chunk-RMVI3VQG.js";
+} from "./chunk-ZMFUJZSL.js";
 import {
   merge
-} from "./chunk-24ZUWIQN.js";
-import "./chunk-BRP4ZVTO.js";
+} from "./chunk-4VHJIMU2.js";
+import "./chunk-ITKDGJGI.js";
 import {
   Subject,
   startWith,
   switchMap,
   takeUntil
-} from "./chunk-KDDE2TCW.js";
+} from "./chunk-QYAL436B.js";
 import "./chunk-N6ESDQJH.js";
 
-// ../../../../node_modules/@angular/material/fesm2022/chips.mjs
+// node_modules/@angular/material/fesm2022/chips.mjs
 var _c0 = ["*", [["mat-chip-avatar"], ["", "matChipAvatar", ""]], [["mat-chip-trailing-icon"], ["", "matChipRemove", ""], ["", "matChipTrailingIcon", ""]]];
 var _c1 = ["*", "mat-chip-avatar, [matChipAvatar]", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"];
 function MatChip_Conditional_3_Template(rf, ctx) {
@@ -498,6 +498,13 @@ var MatChip = class _MatChip {
   set value(value) {
     this._value = value;
   }
+  /** Whether the chip is disabled. */
+  get disabled() {
+    return this._disabled || this._chipListDisabled;
+  }
+  set disabled(value) {
+    this._disabled = value;
+  }
   /**
    * Reference to the MatRipple instance of the chip.
    * @deprecated Considered an implementation detail. To be removed.
@@ -523,10 +530,11 @@ var MatChip = class _MatChip {
     this.ariaLabel = null;
     this.ariaDescription = null;
     this._ariaDescriptionId = `${this.id}-aria-description`;
+    this._chipListDisabled = false;
     this.removable = true;
     this.highlighted = false;
     this.disableRipple = false;
-    this.disabled = false;
+    this._disabled = false;
     this.removed = new EventEmitter();
     this.destroyed = new EventEmitter();
     this.basicChipAttrName = "mat-basic-chip";
@@ -1558,12 +1566,10 @@ var MatChipSet = class _MatChipSet {
   }
   /** Syncs the chip-set's state with the individual chips. */
   _syncChipsState() {
-    if (this._chips) {
-      this._chips.forEach((chip) => {
-        chip.disabled = this._disabled;
-        chip._changeDetectorRef.markForCheck();
-      });
-    }
+    this._chips?.forEach((chip) => {
+      chip._chipListDisabled = this._disabled;
+      chip._changeDetectorRef.markForCheck();
+    });
   }
   /** Dummy method for subclasses to override. Base chip set cannot be focused. */
   focus() {
@@ -1589,14 +1595,10 @@ var MatChipSet = class _MatChipSet {
    * it back to the first chip, creating a focus trap, if it user tries to tab away.
    */
   _allowFocusEscape() {
-    if (this.tabIndex !== -1) {
-      const previousTabIndex = this.tabIndex;
-      this.tabIndex = -1;
-      this._changeDetectorRef.markForCheck();
-      setTimeout(() => {
-        this.tabIndex = previousTabIndex;
-        this._changeDetectorRef.markForCheck();
-      });
+    const previous = this._elementRef.nativeElement.tabIndex;
+    if (previous !== -1) {
+      this._elementRef.nativeElement.tabIndex = -1;
+      setTimeout(() => this._elementRef.nativeElement.tabIndex = previous);
     }
   }
   /**
@@ -2355,8 +2357,13 @@ var MatChipGrid = class _MatChipGrid extends MatChipSet {
     }
     if (!this._chips.length || this._chips.first.disabled) {
       Promise.resolve().then(() => this._chipInput.focus());
-    } else if (this._chips.length && this._keyManager.activeItemIndex !== 0) {
-      this._keyManager.setFirstItemActive();
+    } else {
+      const activeItem = this._keyManager.activeItem;
+      if (activeItem) {
+        activeItem.focus();
+      } else {
+        this._keyManager.setFirstItemActive();
+      }
     }
     this.stateChanges.next();
   }

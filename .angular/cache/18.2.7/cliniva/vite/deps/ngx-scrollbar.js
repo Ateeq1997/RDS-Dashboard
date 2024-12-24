@@ -1,14 +1,14 @@
 import {
   Platform,
   coerceElement
-} from "./chunk-HLALJQ5D.js";
+} from "./chunk-5BGRUJXP.js";
 import {
   Directionality
-} from "./chunk-I4T6RP7V.js";
+} from "./chunk-5VXWFUTI.js";
 import {
   DOCUMENT,
   isPlatformBrowser
-} from "./chunk-PGKNWU6V.js";
+} from "./chunk-SMR5EPDQ.js";
 import {
   ApplicationRef,
   ChangeDetectionStrategy,
@@ -69,13 +69,13 @@ import {
   ɵɵqueryRefresh,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-RMVI3VQG.js";
+} from "./chunk-ZMFUJZSL.js";
 import {
   animationFrameScheduler,
   fromEvent,
   merge
-} from "./chunk-24ZUWIQN.js";
-import "./chunk-BRP4ZVTO.js";
+} from "./chunk-4VHJIMU2.js";
+import "./chunk-ITKDGJGI.js";
 import {
   EMPTY,
   Observable,
@@ -93,14 +93,14 @@ import {
   takeWhile,
   tap,
   throttleTime
-} from "./chunk-KDDE2TCW.js";
+} from "./chunk-QYAL436B.js";
 import {
   __async,
   __spreadProps,
   __spreadValues
 } from "./chunk-N6ESDQJH.js";
 
-// ../../../../node_modules/@angular/core/fesm2022/rxjs-interop.mjs
+// node_modules/@angular/core/fesm2022/rxjs-interop.mjs
 function toSignal(source, options) {
   ngDevMode && assertNotInReactiveContext(toSignal, "Invoking `toSignal` causes new subscriptions every time. Consider moving `toSignal` outside of the reactive context and read the signal value where needed.");
   const requiresCleanup = !options?.manualCleanup;
@@ -162,7 +162,7 @@ function makeToSignalEqual(userEquality = Object.is) {
   return (a, b) => a.kind === 1 && b.kind === 1 && userEquality(a.value, b.value);
 }
 
-// ../../../../node_modules/ngx-scrollbar/fesm2022/ngx-scrollbar-smooth-scroll.mjs
+// node_modules/ngx-scrollbar/fesm2022/ngx-scrollbar-smooth-scroll.mjs
 var NEWTON_ITERATIONS = 4;
 var NEWTON_MIN_SLOPE = 1e-3;
 var SUBDIVISION_PRECISION = 1e-7;
@@ -493,7 +493,7 @@ var SmoothScroll = class _SmoothScroll {
   }], null, null);
 })();
 
-// ../../../../node_modules/ngx-scrollbar/fesm2022/ngx-scrollbar.mjs
+// node_modules/ngx-scrollbar/fesm2022/ngx-scrollbar.mjs
 var _c0 = ["scrollbarButton", ""];
 function ScrollbarY_Conditional_5_Template(rf, ctx) {
   if (rf & 1) {

@@ -1,13 +1,17 @@
 import {
   MatIcon,
   MatIconModule
-} from "./chunk-3J7YNEFV.js";
-import "./chunk-JL22MXTY.js";
+} from "./chunk-KVKDAKED.js";
+import "./chunk-5HTOL536.js";
+import "./chunk-CVPBC6JG.js";
+import {
+  ControlContainer
+} from "./chunk-GNCYDJPD.js";
 import {
   CdkPortalOutlet,
   PortalModule,
   TemplatePortal
-} from "./chunk-QUSUFGSV.js";
+} from "./chunk-UOXIJJU3.js";
 import {
   animate,
   animateChild,
@@ -17,35 +21,34 @@ import {
   style,
   transition,
   trigger
-} from "./chunk-RGTMQ2ZZ.js";
+} from "./chunk-PD2MNQEN.js";
 import {
   ErrorStateMatcher,
   MatCommonModule,
   MatRipple,
   MatRippleModule
-} from "./chunk-Q6XOMKEQ.js";
+} from "./chunk-3RNP423J.js";
 import {
   FocusKeyManager,
   FocusMonitor
-} from "./chunk-N2KVQPG5.js";
+} from "./chunk-KKJUDOGV.js";
 import {
   Platform,
   _getFocusedElementPierceShadowDom
-} from "./chunk-HLALJQ5D.js";
-import {
-  BidiModule,
-  Directionality
-} from "./chunk-I4T6RP7V.js";
+} from "./chunk-5BGRUJXP.js";
 import {
   ENTER,
   SPACE,
   hasModifierKey
-} from "./chunk-R46WNUSQ.js";
-import "./chunk-SREVDFLW.js";
+} from "./chunk-KJGUM6FH.js";
+import {
+  BidiModule,
+  Directionality
+} from "./chunk-5VXWFUTI.js";
 import {
   CommonModule,
   NgTemplateOutlet
-} from "./chunk-PGKNWU6V.js";
+} from "./chunk-SMR5EPDQ.js";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -119,9 +122,9 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵviewQuery
-} from "./chunk-RMVI3VQG.js";
-import "./chunk-24ZUWIQN.js";
-import "./chunk-BRP4ZVTO.js";
+} from "./chunk-ZMFUJZSL.js";
+import "./chunk-4VHJIMU2.js";
+import "./chunk-ITKDGJGI.js";
 import {
   Subject,
   Subscription,
@@ -131,10 +134,10 @@ import {
   startWith,
   switchMap,
   takeUntil
-} from "./chunk-KDDE2TCW.js";
+} from "./chunk-QYAL436B.js";
 import "./chunk-N6ESDQJH.js";
 
-// ../../../../node_modules/@angular/cdk/fesm2022/stepper.mjs
+// node_modules/@angular/cdk/fesm2022/stepper.mjs
 var _c0 = ["*"];
 function CdkStep_ng_template_0_Template(rf, ctx) {
   if (rf & 1) {
@@ -259,6 +262,7 @@ var CdkStep = class _CdkStep {
       this._customError = false;
     }
     if (this.stepControl) {
+      this._childForms?.forEach((form) => form.resetForm?.());
       this.stepControl.reset();
     }
   }
@@ -287,10 +291,20 @@ var CdkStep = class _CdkStep {
       contentQueries: function CdkStep_ContentQueries(rf, ctx, dirIndex) {
         if (rf & 1) {
           ɵɵcontentQuery(dirIndex, CdkStepLabel, 5);
+          ɵɵcontentQuery(
+            dirIndex,
+            // Note: we look for `ControlContainer` here, because both `NgForm` and `FormGroupDirective`
+            // provides themselves as such, but we don't want to have a concrete reference to both of
+            // the directives. The type is marked as `Partial` in case we run into a class that provides
+            // itself as `ControlContainer` but doesn't have the same interface as the directives.
+            ControlContainer,
+            5
+          );
         }
         if (rf & 2) {
           let _t;
           ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.stepLabel = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._childForms = _t);
         }
       },
       viewQuery: function CdkStep_Query(rf, ctx) {
@@ -340,7 +354,7 @@ var CdkStep = class _CdkStep {
     args: [{
       selector: "cdk-step",
       exportAs: "cdkStep",
-      template: "<ng-template><ng-content></ng-content></ng-template>",
+      template: "<ng-template><ng-content/></ng-template>",
       encapsulation: ViewEncapsulation$1.None,
       changeDetection: ChangeDetectionStrategy.OnPush,
       standalone: true
@@ -363,6 +377,19 @@ var CdkStep = class _CdkStep {
     stepLabel: [{
       type: ContentChild,
       args: [CdkStepLabel]
+    }],
+    _childForms: [{
+      type: ContentChildren,
+      args: [
+        // Note: we look for `ControlContainer` here, because both `NgForm` and `FormGroupDirective`
+        // provides themselves as such, but we don't want to have a concrete reference to both of
+        // the directives. The type is marked as `Partial` in case we run into a class that provides
+        // itself as `ControlContainer` but doesn't have the same interface as the directives.
+        ControlContainer,
+        {
+          descendants: true
+        }
+      ]
     }],
     content: [{
       type: ViewChild,
@@ -843,7 +870,7 @@ var CdkStepperModule = class _CdkStepperModule {
   }], null, null);
 })();
 
-// ../../../../node_modules/@angular/material/fesm2022/stepper.mjs
+// node_modules/@angular/material/fesm2022/stepper.mjs
 function MatStepHeader_Conditional_3_Template(rf, ctx) {
   if (rf & 1) {
     ɵɵelementContainer(0, 2);

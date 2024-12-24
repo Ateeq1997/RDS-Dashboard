@@ -1,8 +1,8 @@
 import {
   DomSanitizer
-} from "./chunk-JL22MXTY.js";
-import "./chunk-SREVDFLW.js";
-import "./chunk-PGKNWU6V.js";
+} from "./chunk-5HTOL536.js";
+import "./chunk-CVPBC6JG.js";
+import "./chunk-SMR5EPDQ.js";
 import {
   ChangeDetectorRef,
   Component,
@@ -21,13 +21,13 @@ import {
   ɵɵinject,
   ɵɵprojection,
   ɵɵprojectionDef
-} from "./chunk-RMVI3VQG.js";
-import "./chunk-24ZUWIQN.js";
-import "./chunk-BRP4ZVTO.js";
-import "./chunk-KDDE2TCW.js";
+} from "./chunk-ZMFUJZSL.js";
+import "./chunk-4VHJIMU2.js";
+import "./chunk-ITKDGJGI.js";
+import "./chunk-QYAL436B.js";
 import "./chunk-N6ESDQJH.js";
 
-// ../../../../node_modules/angular-feather/fesm2015/angular-feather.js
+// node_modules/angular-feather/fesm2015/angular-feather.js
 var _c0 = ["*"];
 var Icons = class {
   constructor(icons) {

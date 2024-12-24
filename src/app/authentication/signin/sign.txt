@@ -1,0 +1,348 @@
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UnsubscribeOnDestroyAdapter } from '@shared';
+import { AuthService, Role } from '@core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+@Component({
+    selector: 'app-signin',
+    templateUrl: './signin.component.html',
+    styleUrls: ['./signin.component.scss'],
+    standalone: true,
+    imports: [
+        RouterLink,
+        MatButtonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+    ],
+})
+export class SigninComponent
+  extends UnsubscribeOnDestroyAdapter
+  implements OnInit {
+  authForm!: UntypedFormGroup;
+  submitted = false;
+  loading = false;
+  error = '';
+  hide = true;
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService
+  ) {
+    super();
+  }
+
+ ngOnInit() {
+  this.authForm = this.formBuilder.group({
+    username: ['admin@hospital.org', Validators.required],
+    password: ['admin@123', Validators.required],
+  });
+}
+  get f() {
+    return this.authForm.controls;
+  }
+  adminSet() {
+    this.authForm.get('username')?.setValue('admin@hospital.org');
+    this.authForm.get('password')?.setValue('admin@123');
+  }
+  doctorSet() {
+    this.authForm.get('username')?.setValue('doctor@hospital.org');
+    this.authForm.get('password')?.setValue('doctor@123');
+  }
+  patientSet() {
+    this.authForm.get('username')?.setValue('patient@hospital.org');
+    this.authForm.get('password')?.setValue('patient@123');
+  }
+  onSubmit() {
+    this.submitted = true;
+    this.loading = true;
+    this.error = '';
+    
+    if (this.authForm.invalid) {
+        this.error = 'Username and Password not valid !';
+        this.loading = false;
+        return;
+    } else {
+        this.subs.sink = this.authService
+            .login(this.f['username'].value, this.f['password'].value)
+            .subscribe({
+                next: (res) => {
+                    if (res) {
+                        setTimeout(() => {
+                            const role = this.authService.currentUserValue.role;
+                            if (role === Role.All || role === Role.Admin) {
+                                this.router.navigate(['/admin/dashboard/main']);
+                            } else if (role === Role.Doctor) {
+                                this.router.navigate(['/doctor/dashboard']);
+                            } else if (role === Role.Patient) {
+                                this.router.navigate(['/patient/dashboard']);
+                            } else {
+                                this.router.navigate(['/authentication/signin']);
+                            }
+                            this.loading = false;
+                        }, 1000);
+                    } else {
+                        this.error = 'Invalid Login';
+                    }
+                },
+                error: (error) => {
+                    this.error = error;
+                    this.submitted = false;
+                    this.loading = false;
+                },
+            });
+    }
+}
+
+}
+
+
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+
+@Component({
+    selector: 'app-signin',
+    templateUrl: './signin.component.html',
+    styleUrls: ['./signin.component.scss'],
+    standalone: true,
+    imports: [
+        RouterLink,
+        MatButtonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+    ],
+})
+export class SigninComponent implements OnInit {
+  authForm!: UntypedFormGroup;
+  submitted = false;
+  loading = false;
+  error = '';
+  hide = true;
+
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {}
+
+  ngOnInit() {
+    this.authForm = this.formBuilder.group({
+      username: ['', Validators.required], 
+      password: ['', Validators.required], 
+    });
+  }
+
+  get f() {
+    return this.authForm.controls;
+  }
+
+  // Pre-set credentials for users
+  adminSet() {
+    this.authForm.get('username')?.setValue('shariqsifat.noor@gmail.com');
+    this.authForm.get('password')?.setValue('Pakistan@1122');
+  }
+
+  doctorSet() {
+    this.authForm.get('username')?.setValue('doctor@hospital.org');
+    this.authForm.get('password')?.setValue('doctor@123');
+  }
+
+  patientSet() {
+    this.authForm.get('username')?.setValue('patient@hospital.org');
+    this.authForm.get('password')?.setValue('patient@123');
+  }
+
+  // On form submit
+  onSubmit() {
+    this.submitted = true;
+    this.loading = true;
+    this.error = '';
+
+    if (this.authForm.invalid) {
+      this.error = 'Username and Password not valid!';
+      this.loading = false;
+      return;
+    }
+
+    // Local login logic without AuthService
+    const validUsers = [
+      { username: 'shariqsifat.noor@gmail.com', password: 'Pakistan@1122', role: 'Admin' },
+      { username: 'doctor@hospital.org', password: 'doctor@123', role: 'Doctor' },
+      { username: 'patient@hospital.org', password: 'patient@123', role: 'Patient' }
+    ];
+
+    const enteredUsername = this.f['username'].value;
+    const enteredPassword = this.f['password'].value;
+
+    const validUser = validUsers.find(user => 
+      user.username === enteredUsername && user.password === enteredPassword
+    );
+
+    if (validUser) {
+      setTimeout(() => {
+        if (validUser.role === 'Admin') {
+          this.router.navigate(['/admin/dashboard/main']);
+        } else if (validUser.role === 'Doctor') {
+          this.router.navigate(['/doctor/dashboard']);
+        } else if (validUser.role === 'Patient') {
+          this.router.navigate(['/patient/dashboard']);
+        } else {
+          this.router.navigate(['/authentication/signin']);
+        }
+        this.loading = false;
+      }, 1000);
+    } else {
+      this.error = 'Invalid Login. Username or Password is incorrect.';
+      this.loading = false;
+    }
+  }
+}
+
+
+
+
+//signin.component.ts
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router'; // Import RouterModule here
+
+@Component({
+    selector: 'app-signin',
+    templateUrl: './signin.component.html',
+    styleUrls: ['./signin.component.scss'],
+    standalone: true,
+    imports: [
+        MatButtonModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        RouterModule // Import RouterModule here
+    ],
+})
+export class SigninComponent implements OnInit {
+    authForm!: UntypedFormGroup;
+    submitted = false;
+    loading = false;
+    error = '';
+    hide = true;
+
+    constructor(
+        private formBuilder: UntypedFormBuilder,
+        private router: Router,
+        private http: HttpClient,
+    ) {}
+
+    ngOnInit() {
+        this.authForm = this.formBuilder.group({
+            username: ['', Validators.required],
+            password: ['', Validators.required],
+        });
+    }
+
+    get f() {
+        return this.authForm.controls;
+    }
+
+    // On form submit
+    onSubmit() {
+        this.submitted = true;
+        this.loading = true;
+        this.error = '';
+
+        if (this.authForm.invalid) {
+            this.error = 'Username and Password not valid!';
+            this.loading = false;
+            return;
+        }
+
+        const enteredUsername = this.f['username'].value;
+        const enteredPassword = this.f['password'].value;
+
+        // Post request to sign in
+        this.http.post<{ message: string, role?: string }>('http://localhost:3000/signin', {
+            username: enteredUsername,
+            password: enteredPassword
+        })
+        .subscribe({
+            next: (response) => {
+                this.loading = false;
+                console.log('Login Response:', response);
+
+                if (response.role) {
+                    setTimeout(() => {
+                        if (response.role === 'User') {
+                            this.router.navigate(['/doctor/dashboard']);
+                        }
+                    }, 1000);
+                } else {
+                    this.error = response.message || 'Invalid Login. Username or Password is incorrect.';
+                }
+            },
+            error: (err) => {
+                this.loading = false;
+                console.error('Login Error:', err);
+                this.error = err.error.message || 'Login failed. Please try again.';
+            }
+        });
+    }
+}
+
+
+
+
+
+//server.js
+Signin route
+app.post('/signin', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        const snapshot = await admin.database().ref('users').orderByChild('username').equalTo(username).once('value');
+
+        if (snapshot.exists()) {
+            const user = snapshot.val();
+            const userId = Object.keys(user)[0]; // Get the user ID
+            const storedUser = user[userId];
+
+            const match = await bcrypt.compare(password, storedUser.password);
+            if (match) {
+                res.json({ message: 'Login successful', role: storedUser.role });
+            } else {
+                res.status(401).json({ message: 'Invalid username or password' });
+            }
+        } else {
+            res.status(401).json({ message: 'Invalid username or password' });
+        }
+    } catch (error) {
+        console.error('Sign-in error:', error);
+        res.status(500).json({ message: 'Error during sign-in' });
+    }
+});
+
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});

@@ -58,7 +58,7 @@ import {
   triangle_default,
   wiggle_default,
   wye_default
-} from "./chunk-3DNSBP4O.js";
+} from "./chunk-KUKGY7Y7.js";
 import "./chunk-N6ESDQJH.js";
 export {
   arc_default as arc,

@@ -1,7 +1,7 @@
 import {
   DomSanitizer
-} from "./chunk-JL22MXTY.js";
-import "./chunk-SREVDFLW.js";
+} from "./chunk-5HTOL536.js";
+import "./chunk-CVPBC6JG.js";
 import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
@@ -15,7 +15,7 @@ import {
   ReactiveFormsModule,
   Validators,
   ɵNgNoValidate
-} from "./chunk-4A4A7OPE.js";
+} from "./chunk-GNCYDJPD.js";
 import {
   AsyncPipe,
   CommonModule,
@@ -25,7 +25,7 @@ import {
   NgIf,
   NgStyle,
   NgTemplateOutlet
-} from "./chunk-PGKNWU6V.js";
+} from "./chunk-SMR5EPDQ.js";
 import {
   ApplicationRef,
   Component,
@@ -92,19 +92,19 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵviewQuery
-} from "./chunk-RMVI3VQG.js";
+} from "./chunk-ZMFUJZSL.js";
 import {
   fromEvent,
   isObservable
-} from "./chunk-24ZUWIQN.js";
-import "./chunk-BRP4ZVTO.js";
+} from "./chunk-4VHJIMU2.js";
+import "./chunk-ITKDGJGI.js";
 import {
   Subject,
   asyncScheduler,
   of,
   takeUntil,
   throttleTime
-} from "./chunk-KDDE2TCW.js";
+} from "./chunk-QYAL436B.js";
 import {
   __async,
   __objRest,
@@ -112,7 +112,7 @@ import {
   __spreadValues
 } from "./chunk-N6ESDQJH.js";
 
-// ../../../../node_modules/ngx-editor/fesm2022/ngx-editor-utils.mjs
+// node_modules/ngx-editor/fesm2022/ngx-editor-utils.mjs
 var isNil = (val) => {
   return typeof val === "undefined" || val === null;
 };
@@ -147,7 +147,7 @@ var clamp = (value, min2, max2) => {
   return Math.min(Math.max(value, min2), max2);
 };
 
-// ../../../../node_modules/orderedmap/dist/index.js
+// node_modules/orderedmap/dist/index.js
 function OrderedMap(content) {
   this.content = content;
 }
@@ -263,7 +263,7 @@ OrderedMap.from = function(value) {
 };
 var dist_default = OrderedMap;
 
-// ../../../../node_modules/prosemirror-model/dist/index.js
+// node_modules/prosemirror-model/dist/index.js
 function findDiffStart(a, b, pos) {
   for (let i = 0; ; i++) {
     if (i == a.childCount || i == b.childCount) return a.childCount == b.childCount ? null : pos;
@@ -3247,7 +3247,7 @@ function renderSpec(doc4, structure, xmlNS, blockArraysIn) {
   };
 }
 
-// ../../../../node_modules/prosemirror-transform/dist/index.js
+// node_modules/prosemirror-transform/dist/index.js
 var lower16 = 65535;
 var factor16 = Math.pow(2, 16);
 function makeRecover(index, offset3) {
@@ -4915,7 +4915,7 @@ var Transform = class {
   }
 };
 
-// ../../../../node_modules/prosemirror-state/dist/index.js
+// node_modules/prosemirror-state/dist/index.js
 var classesById = /* @__PURE__ */ Object.create(null);
 var Selection = class {
   /**
@@ -5821,7 +5821,7 @@ var PluginKey = class {
   }
 };
 
-// ../../../../node_modules/prosemirror-view/dist/index.js
+// node_modules/prosemirror-view/dist/index.js
 var domIndex = function(node) {
   for (var index = 0; ; index++) {
     node = node.previousSibling;
@@ -10637,7 +10637,7 @@ function checkStateComponent(plugin) {
   if (plugin.spec.state || plugin.spec.filterTransaction || plugin.spec.appendTransaction) throw new RangeError("Plugins passed directly to the view must not have a state component");
 }
 
-// ../../../../node_modules/prosemirror-schema-list/dist/index.js
+// node_modules/prosemirror-schema-list/dist/index.js
 var olDOM = ["ol", 0];
 var ulDOM = ["ul", 0];
 var liDOM = ["li", 0];
@@ -10828,7 +10828,7 @@ function sinkListItem(itemType) {
   };
 }
 
-// ../../../../node_modules/ngx-editor/fesm2022/ngx-editor-schema.mjs
+// node_modules/ngx-editor/fesm2022/ngx-editor-schema.mjs
 var link = {
   attrs: {
     href: {},
@@ -11316,7 +11316,7 @@ var schema = new Schema({
   nodes
 });
 
-// ../../../../node_modules/prosemirror-commands/dist/index.js
+// node_modules/prosemirror-commands/dist/index.js
 var deleteSelection = (state, dispatch) => {
   if (state.selection.empty) return false;
   if (dispatch) dispatch(state.tr.deleteSelection().scrollIntoView());
@@ -11809,7 +11809,7 @@ for (let key in pcBaseKeymap) macBaseKeymap[key] = pcBaseKeymap[key];
 var mac2 = typeof navigator != "undefined" ? /Mac|iP(hone|[oa]d)/.test(navigator.platform) : typeof os != "undefined" && os.platform ? os.platform() == "darwin" : false;
 var baseKeymap = mac2 ? macBaseKeymap : pcBaseKeymap;
 
-// ../../../../node_modules/prosemirror-inputrules/dist/index.js
+// node_modules/prosemirror-inputrules/dist/index.js
 var InputRule = class {
   // :: (RegExp, union<string, (state: EditorState, match: [string], start: number, end: number) → ?Transaction>)
   /**
@@ -11939,7 +11939,7 @@ function textblockTypeInputRule(regexp, nodeType, getAttrs = null) {
   });
 }
 
-// ../../../../node_modules/ngx-editor/fesm2022/ngx-editor-helpers.mjs
+// node_modules/ngx-editor/fesm2022/ngx-editor-helpers.mjs
 var isMarkActive = (state, type) => {
   const {
     from: from2,
@@ -12066,7 +12066,7 @@ var canInsert = (state, nodeType) => {
   return false;
 };
 
-// ../../../../node_modules/ngx-editor/fesm2022/ngx-editor-commands.mjs
+// node_modules/ngx-editor/fesm2022/ngx-editor-commands.mjs
 var removeLink = () => {
   return (state, dispatch) => {
     const {
@@ -12176,7 +12176,7 @@ var removeMark2 = (type) => {
   };
 };
 
-// ../../../../node_modules/rope-sequence/dist/index.js
+// node_modules/rope-sequence/dist/index.js
 var GOOD_LEAF_SIZE = 200;
 var RopeSequence = function RopeSequence2() {
 };
@@ -12366,7 +12366,7 @@ var Append = function(RopeSequence3) {
 }(RopeSequence);
 var dist_default2 = RopeSequence;
 
-// ../../../../node_modules/prosemirror-history/dist/index.js
+// node_modules/prosemirror-history/dist/index.js
 var max_empty_items = 500;
 var Branch = class _Branch {
   constructor(items, eventCount) {
@@ -12691,7 +12691,7 @@ var redo = buildCommand(true, true);
 var undoNoScroll = buildCommand(false, false);
 var redoNoScroll = buildCommand(true, false);
 
-// ../../../../node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
+// node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
 var sides = ["top", "right", "bottom", "left"];
 var alignments = ["start", "end"];
 var placements = sides.reduce((acc, side) => acc.concat(side, side + "-" + alignments[0], side + "-" + alignments[1]), []);
@@ -12787,7 +12787,7 @@ function rectToClientRect(rect) {
   };
 }
 
-// ../../../../node_modules/@floating-ui/core/dist/floating-ui.core.mjs
+// node_modules/@floating-ui/core/dist/floating-ui.core.mjs
 function computeCoordsFromPlacement(_ref, placement, rtl) {
   let {
     reference,
@@ -13153,7 +13153,7 @@ var offset = function(options) {
   };
 };
 
-// ../../../../node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
+// node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
 function hasWindow() {
   return typeof window !== "undefined";
 }
@@ -13299,7 +13299,7 @@ function getFrameElement(win) {
   return win.parent && Object.getPrototypeOf(win.parent) ? win.frameElement : null;
 }
 
-// ../../../../node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
+// node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
 function getCssDimensions(element) {
   const css = getComputedStyle2(element);
   let width = parseFloat(css.width) || 0;
@@ -13734,7 +13734,7 @@ var computePosition2 = (reference, floating, options) => {
   }));
 };
 
-// ../../../../node_modules/w3c-keyname/index.js
+// node_modules/w3c-keyname/index.js
 var base = {
   8: "Backspace",
   9: "Tab",
@@ -13840,7 +13840,7 @@ function keyName(event) {
   return name;
 }
 
-// ../../../../node_modules/prosemirror-keymap/dist/index.js
+// node_modules/prosemirror-keymap/dist/index.js
 var mac4 = typeof navigator != "undefined" ? /Mac|iP(hone|[oa]d)/.test(navigator.platform) : false;
 function normalizeKeyName(name) {
   let parts = name.split(/-(?!$)/), result = parts[parts.length - 1];
@@ -13901,7 +13901,7 @@ function keydownHandler(bindings) {
   };
 }
 
-// ../../../../node_modules/ngx-editor/fesm2022/ngx-editor.mjs
+// node_modules/ngx-editor/fesm2022/ngx-editor.mjs
 var _c0 = ["imgEl"];
 var _c1 = (a0) => ({
   "NgxEditor__Resizer--Active": a0

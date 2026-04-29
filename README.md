@@ -6,7 +6,7 @@ Edit
 
 This is the **Dashboard Panel** for **RDS Precision Billing**, built using **Angular**, **TypeScript**, **HTML**, and **SCSS**. It provides role-based access for Admins, Doctors, and Patients, each with their own login/signup system and dedicated features.
 
-🔗 **Live Dashboard:** [https://software.rdsprecisionbilling.com/#/authentication/signin](https://software.rdsprecisionbilling.com/#/authentication/signin)
+🔗 **Live Dashboard:** [https://rds-dashboard-eight.vercel.app/#/authentication/signin)
 
 ## 👤 User Roles
 
